@@ -11,3 +11,7 @@ alp:
 .PHONY: slow-show
 slow-show:
 	sudo mysqldumpslow -s t -t 10
+
+.PHONY: pprof
+pprof:
+	go tool pprof -http=0.0.0.0:8080 /home/isucon/webapp/go/isucondition http://localhost:6060/debug/pprof/profile
