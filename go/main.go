@@ -713,7 +713,7 @@ func getIsuIcon(c echo.Context) error {
 		c.Logger().Errorf("db error: %v", err)
 		return c.NoContent(http.StatusInternalServerError)
 	}
-	c.Response().Header().Set("Cache-Control", "max-age=300")
+	c.Response().Header().Set("Cache-Control", "max-age=600")
 	return c.Blob(http.StatusOK, "", image)
 }
 

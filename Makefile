@@ -15,3 +15,11 @@ slow-show:
 .PHONY: pprof
 pprof:
 	go tool pprof -http=0.0.0.0:8080 /home/isucon/webapp/go/isucondition http://localhost:6060/debug/pprof/profile
+
+.PHONY: truncate
+truncate:
+	sudo truncate -s 0 -c /var/log/nginx/access.log
+
+.PHONY: restart-mysql
+restart-mysql:
+	sudo systemctl restart mysql.service
