@@ -23,3 +23,11 @@ truncate:
 .PHONY: restart-mysql
 restart-mysql:
 	sudo systemctl restart mysql.service
+
+.PHONY: setting-mysql
+setting-mysql:
+	sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+
+.PHONY: setting-nginx
+setting-nginx:
+	sudo nano /etc/nginx/nginx.conf
