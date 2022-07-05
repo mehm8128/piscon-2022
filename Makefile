@@ -11,6 +11,7 @@ alp:
 .PHONY: slow-show
 slow-show:
 	sudo mysqldumpslow -s t -t 10
+	sudo pt-query-digest /var/log/mysql/mariadb-slow.log
 
 .PHONY: pprof
 pprof:
@@ -23,11 +24,13 @@ truncate:
 .PHONY: restart-mysql
 restart-mysql:
 	sudo systemctl restart mysql.service
+.PHONY: restart-nginx
+restart-nginx:
+	sudo systemctl restart nginx
 
 .PHONY: setting-mysql
 setting-mysql:
 	sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
-
 .PHONY: setting-nginx
 setting-nginx:
 	sudo nano /etc/nginx/nginx.conf
