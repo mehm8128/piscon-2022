@@ -54,7 +54,7 @@ pre-bench:
 	make restart-nginx
 	make build
 	make truncate
-	make pprof
+	make pprof-image
 .PHONY: after-bench
 after-bench:
 	make alp
